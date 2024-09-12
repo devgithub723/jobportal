@@ -10,7 +10,7 @@ export const register = async (req, res) => {
     try {
         const { fullname, email, phoneNumber, password, role } = req.body;
          
-        if (!fullname || !email || !phoneNumber || !password || !role) {
+        if (!fullname || !email || !phoneNumber || !password || !role || !req.file) {
             console.log(fullname,email,phoneNumber,password,role)
             let name="dev";
             return res.status(400).json({
@@ -120,6 +120,16 @@ export const logout = async (req, res) => {
 export const updateProfile = async (req, res) => {
     try {
         const { fullname, email, phoneNumber, bio, skills } = req.body;
+
+        if (!fullname || !email || !phoneNumber || !password || !role || !req.file) {
+            console.log(fullname,email,phoneNumber,password,role)
+            let name="dev";
+            return res.status(400).json({
+               msg:role,
+                message: "Some is missing",
+                success: false
+            });
+        }
         
         const file = req.file;
         // cloudinary ayega idhar
