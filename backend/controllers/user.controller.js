@@ -14,8 +14,8 @@ export const register = async (req, res) => {
             console.log(fullname,email,phoneNumber,password,role)
             let name="dev";
             return res.status(400).json({
-               msg:role,
-                message: "Some is missing",
+               
+                message: "Somethin is missing",
                 success: false
             });
         };
@@ -125,7 +125,7 @@ export const updateProfile = async (req, res) => {
             console.log(fullname,email,phoneNumber,password,role)
             let name="dev";
             return res.status(400).json({
-               msg:role,
+               
                 message: "Some is missing",
                 success: false
             });
