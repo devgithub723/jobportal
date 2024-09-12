@@ -20,13 +20,13 @@ export const register = async (req, res) => {
             });
         };
         
-        // if(!req.file){
-        //     return res.status(400).json({
+        if(!req.file){
+            return res.status(400).json({
                
-        //         message: "Somethin is missing",
-        //         success: false
-        //     });
-        // }
+                message: "Somethin is missing",
+                success: false
+            });
+        }
         const file = req.file;
         const fileUri = getDataUri(file);
         const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
