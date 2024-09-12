@@ -129,9 +129,9 @@ export const updateProfile = async (req, res) => {
     try {
         const { fullname, email, phoneNumber, bio, skills } = req.body;
 
-        if (!fullname || !email || !phoneNumber || !password || !role ) {
-            console.log(fullname,email,phoneNumber,password,role)
-            let name="dev";
+        if (!fullname || !email || !phoneNumber || !bio || !skills ) {
+            
+            
             return res.status(400).json({
                
                 message: "Some is missing",
