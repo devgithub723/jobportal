@@ -129,16 +129,22 @@ export const updateProfile = async (req, res) => {
     try {
         const { fullname, email, phoneNumber, bio, skills } = req.body;
 
-        // if (!fullname || !email || !phoneNumber || !password || !role || !req.file) {
-        //     console.log(fullname,email,phoneNumber,password,role)
-        //     let name="dev";
-        //     return res.status(400).json({
+        if (!fullname || !email || !phoneNumber || !password || !role ) {
+            console.log(fullname,email,phoneNumber,password,role)
+            let name="dev";
+            return res.status(400).json({
                
-        //         message: "Some is missing",
-        //         success: false
-        //     });
-        // }
-        
+                message: "Some is missing",
+                success: false
+            });
+        }
+        if(!req.file){
+            return res.status(400).json({
+               
+                message: "Somethin is missing",
+                success: false
+            });
+        }
         const file = req.file;
         // cloudinary ayega idhar
         const fileUri = getDataUri(file);
